@@ -11,7 +11,7 @@ const counter=document.getElementById("counteee");
 
 debug("Reading parameters");
 const size = get("size") ?? 32;
-const mazes = get("width") ?? 5;
+const mazes = get("width") ??5;
 
 debug("Configuring canvas");
 canvas.width = mazes*size;
@@ -22,7 +22,11 @@ const player = {
     x: 0,
     y: 0,
 }
-
+function finishe() {
+    player.x=finishPoint.x;
+    player.y=finishPoint.y
+    console.log("Warn! Cheating!")
+}
 function createNewFinishPoint() {
     debug("Creating finish point");
     finishPoint = {
@@ -101,13 +105,14 @@ function handleMovement(dir) {
         if (maze[player.y][player.x].bottom) cango.down = false;
     }
 
-    if (dir == "KeyW"|| dir=="top") if (cango.up) player.y--; else error("Cannot go up!");
+    if (dir == "KeyW"|| dir=="up") if (cango.up) player.y--; else error("Cannot go up!");
     if (dir == "KeyD"||dir=="right") if (cango.right) player.x++; else error("Cannot go right!");
     if (dir == "KeyS"||dir=="bottom") if (cango.down) player.y++; else error("Cannot go down!");
     if (dir == "KeyA"||dir=="left") if (cango.left) player.x--; else error("Cannot go left!");
 }
 
 function game() {
+    //finishe()
     if (player.x == finishPoint.x && player.y == finishPoint.y) {
         doAuto=false;
         createNewFinishPoint();
@@ -119,6 +124,10 @@ function game() {
 
 debug("Registering events");
 addEventListener("keypress", controls.keyboard.press);
-
+document.getElementById("bu").addEventListener("click",(e)=>{handleMovement("up")});
+document.getElementById("br").addEventListener("click",(e)=>{handleMovement("right")})
+document.getElementById("bl").addEventListener("click",(e)=>{handleMovement("left")})
+document.getElementById("bd").addEventListener("click",(e)=>{handleMovement("bottom")})
+document.getElementById("cnf").addEventListener("click",(e)=>{location.href = `settings.html?size=${size}&width=${mazes}`;});
 debug("IMPORTANT! Launching the game");
 game();

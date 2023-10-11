@@ -4,7 +4,7 @@ const sizeExmpl = document.getElementById("sexmpl");
 const sizeRExmpl = document.getElementById("srexmpl");
 const sizeiInput = document.getElementById("sizei");
 const sizeiOutput = document.getElementById("sizeio");
-
+const beginBtn=document.getElementById("runm");
 let size = get("size") ?? 32;
 let maze = get("width") ?? 5;
 
@@ -38,6 +38,10 @@ sizeiInput.addEventListener("input", function (e) {
     sizeRExmpl.style.width = `${maze * size}px`;
     sizeRExmpl.style.height = `${maze * size}px`;
 });
+function startm() {
+    location.href = `maze.html?size=${size}&width=${maze}`;
+}
 addEventListener("keypress", function (e) {
-    if (e.code == "KeyP") location.href = `maze.html?size=${size}&width=${maze}`;
+    if (e.code == "KeyP") startm()
 });
+beginBtn.addEventListener("click",startm);
