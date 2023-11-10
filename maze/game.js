@@ -13,6 +13,8 @@ debug("Reading parameters");
 const size = get("size") ?? 32;
 const mazes = get("width") ??5;
 
+let doFi=false
+
 debug("Configuring canvas");
 canvas.width = mazes*size;
 canvas.height = mazes*size;
@@ -49,6 +51,7 @@ const controls = {
         press(e) {
             const code = e.code;
             if (code == "KeyP") location.href = `settings.html?size=${size}&width=${mazes}`;
+            if(code=="KeyY") doFi=!doFi;
             if (code == "KeyW") handleMovement(code);
             if (code == "KeyA") handleMovement(code);
             if (code == "KeyS") handleMovement(code);
@@ -112,7 +115,7 @@ function handleMovement(dir) {
 }
 
 function game() {
-    //finishe()
+    if(doFi) finishe()
     if (player.x == finishPoint.x && player.y == finishPoint.y) {
         doAuto=false;
         createNewFinishPoint();
