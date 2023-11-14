@@ -12,7 +12,7 @@ function render() {
     sTriangle(ctx,0,0,canvas.width,iter);
 }
 
-range.addEventListener("input",function(e) {
+range.addEventListener("change",function(e) {
     iter=this.value;
     ranger.innerHTML=iter;
     render();
