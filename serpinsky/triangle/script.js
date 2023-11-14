@@ -1,7 +1,6 @@
 const canvas=document.getElementById("canvas");
 const ctx=canvas.getContext("2d");
 const range=document.getElementById("width");
-const ranger=document.getElementById("widthr");
 
 canvas.width=innerHeight*0.75;
 canvas.height=innerHeight*0.75;
@@ -14,7 +13,6 @@ function render() {
 
 range.addEventListener("change",function(e) {
     iter=this.value;
-    ranger.innerHTML=iter;
     render();
 });
 render();
