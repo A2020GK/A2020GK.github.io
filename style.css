@@ -1,0 +1,50 @@
+* {
+    transition: all 0.25s;
+}
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+body {
+    background-color: darkcyan;
+    font-family:"Arial";
+}
+.wrapper {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    background-color: white;
+    border: 3px solid black;
+    padding: 50px;
+    text-align: center;
+    border-radius: 25px;
+    padding-top: 0;
+}
+h1 {
+    font-size: xx-large;
+    padding-bottom: 20px;
+}
+.box p {
+    font-size: x-large;
+    background-color: gray;
+    border-radius: 10px;
+    border: 1px solid gray;
+}
+.box p a {
+    text-decoration: none;
+    color: whitesmoke;
+    display: block;
+    padding: 10px;
+    height: 100%;
+}
+
+.box p:hover {
+    background-color: darkgray;
+    border:1px solid black;
+}
